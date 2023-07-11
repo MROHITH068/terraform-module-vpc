@@ -58,7 +58,7 @@ resource "aws_route" "route-ngw" {
   nat_gateway_id   = aws_nat_gateway.ngw.id
 }
 
-resource "aws_route" "route-ngw" {
+resource "aws_route" "peer-route" {
   count = length(local.all_route_table_ids)
   route_table_id = element(local.all_route_table_ids, count.index)
   destination_cidr_block = "172.31.0.0/16"
