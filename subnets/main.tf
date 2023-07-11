@@ -15,3 +15,4 @@ resource "aws_route_table" "table" {
     Name = "${var.env}-${var.subnet_name}"
   },var.tags)
 }
+

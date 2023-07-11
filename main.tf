@@ -23,3 +23,11 @@ resource "aws_vpc_peering_connection" "veer" {
   vpc_id        = var.default_vpc_id
   auto_accept = true
 }
+
+resource "aws_internet_gateway" "igw" {
+  vpc_id = aws_vpc.main.id
+
+  tags = merge({
+    Name = "${var.env}-igw"
+  }, var.tags)
+}
